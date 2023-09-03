@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :ensure_correct_user, only: [:update]
+
 
   def show
     @user = User.find(params[:id])
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @book = Book.new
 
   def edit
+    @obj = User.find(params[:id])
   end
 
   def update
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
     end
   end
 
-  private
+  print
 
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
@@ -35,6 +36,4 @@ class UsersController < ApplicationController
     end
   end
   end
-
-end 
-
+end
